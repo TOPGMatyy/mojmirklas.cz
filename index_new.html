@@ -1,0 +1,1296 @@
+﻿<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soudní znalec | Mojmír Klas, s.r.o.</title>
+  <meta name="description" content="Projekce a kontroly zařízení k ochraně proti pádu. Znalecké posudky, projekce, kontroly, audity, vzdělávání, poradenství.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.mojmirklas.cz/">
+  <meta property="og:title" content="Soudní znalec | Mojmír Klas, s.r.o.">
+  <meta property="og:description" content="Projekce a kontroly zařízení k ochraně proti pádu">
+  <meta property="og:image" content="https://a22a11bbcc.clvaw-cdnwnd.com/75a8317638be34ed3960728b753c9557/200001855-a8eeba8eed/WebImage.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #0B1623;
+      --navy-2:      #1E2933;
+      --navy-light:  #162234;
+      --accent:      #F97316;
+      --accent-hover:#ea6c0a;
+      --bg:          #F5F7FA;
+      --bg-white:    #FFFFFF;
+      --text:        #1a2332;
+      --text-muted:  #64748B;
+      --border:      #E4E8EE;
+      --border-dark: rgba(255,255,255,.07);
+      --radius:      10px;
+      --radius-lg:   16px;
+      --shadow-sm:   0 1px 8px rgba(11,22,35,.06);
+      --shadow:      0 4px 24px rgba(11,22,35,.09);
+      --shadow-lg:   0 12px 48px rgba(11,22,35,.15);
+      --ease:        cubic-bezier(.4,0,.2,1);
+      --transition:  .22s var(--ease);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text); background: var(--bg);
+      line-height: 1.65; font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* ── NAVBAR ──────────────────────────────────────────────────── */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      box-shadow: 0 4px 32px rgba(0,0,0,.32);
+    }
+    .nav-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center;
+      padding: 0 32px; height: 68px; gap: 12px;
+    }
+    .nav-brand { display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; }
+    .nav-brand .brand-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: .97rem; font-weight: 700; color: #fff; letter-spacing: .01em;
+    }
+    .nav-brand .brand-sub { font-size: .63rem; color: rgba(255,255,255,.38); font-weight: 400; letter-spacing: .02em; }
+
+    .nav-links { display: flex; align-items: center; gap: 0; flex-wrap: nowrap; margin-left: auto; }
+    .nav-links a {
+      color: rgba(255,255,255,.55); font-size: .78rem; font-weight: 500;
+      padding: 6px 9px; border-radius: 5px;
+      transition: color var(--transition), background var(--transition); white-space: nowrap;
+      letter-spacing: .01em;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.07); }
+
+    .nav-cta {
+      flex-shrink: 0; margin-left: 10px;
+      background: var(--accent); color: #fff !important;
+      padding: 8px 18px; border-radius: 6px;
+      font-size: .78rem; font-weight: 700; white-space: nowrap; letter-spacing: .01em;
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+    .nav-cta:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 6px 20px rgba(249,115,22,.35);
+      transform: translateY(-1px);
+    }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+      background: none; border: none; padding: 8px;
+    }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: rgba(255,255,255,.7); border-radius: 2px; transition: var(--transition); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none; background: var(--navy-light);
+      padding: 12px 32px 20px; border-top: 1px solid var(--border-dark);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block; color: rgba(255,255,255,.55); font-size: .88rem; font-weight: 500;
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.05);
+      transition: color var(--transition);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: #fff; }
+    .mobile-menu a.cta { color: var(--accent); font-weight: 600; }
+
+    /* ── HERO ────────────────────────────────────────────────────── */
+    .hero {
+      position: relative; overflow: hidden;
+      background: var(--navy);
+      min-height: 88svh; display: flex; align-items: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('./images/illustration.jpg');
+      background-size: cover; background-position: center 35%;
+      opacity: 1;
+    }
+    /* Cinematic overlay */
+    .hero::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background:
+        linear-gradient(105deg, rgba(11,22,35,.96) 0%, rgba(11,22,35,.82) 45%, rgba(11,22,35,.55) 100%);
+    }
+    /* Vignette */
+    .hero::after {
+      content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,.5) 100%);
+    }
+    /* Accent bottom line */
+    .hero-inner::before {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), transparent 60%);
+    }
+    .hero-inner {
+      position: relative; z-index: 2; max-width: 1400px; margin: 0 auto;
+      padding: 110px 48px 96px; width: 100%;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(249,115,22,.12); border: 1px solid rgba(249,115,22,.28);
+      color: var(--accent);
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 3px; margin-bottom: 28px;
+    }
+    .hero-badge::before {
+      content: ''; width: 5px; height: 5px; background: var(--accent); border-radius: 50%;
+      animation: pulse-dot 2.5s infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; transform: scale(1); }
+      50%      { opacity:.4; transform: scale(.7); }
+    }
+    .hero h1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; color: #fff;
+      line-height: 1.08; max-width: 740px; margin-bottom: 22px;
+      letter-spacing: -.025em;
+    }
+    .hero p {
+      font-size: 1.05rem; color: rgba(255,255,255,.52); max-width: 540px;
+      margin-bottom: 40px; line-height: 1.78; font-weight: 400;
+    }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--accent); color: #fff; font-weight: 700; font-size: .9rem;
+      padding: 14px 30px; border-radius: 6px;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      display: inline-block; letter-spacing: .01em;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover); transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(249,115,22,.38);
+    }
+    .btn-secondary {
+      background: transparent; color: rgba(255,255,255,.8); font-weight: 600; font-size: .9rem;
+      padding: 14px 30px; border-radius: 6px; border: 1px solid rgba(255,255,255,.18);
+      transition: background var(--transition), border-color var(--transition); display: inline-block;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.32); }
+
+    /* ── STATS BAR ───────────────────────────────────────────────── */
+    .stats-bar {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-inner {
+      max-width: 1400px; margin: 0 auto;
+      padding: 0 32px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+      border-left: 1px solid var(--border);
+    }
+    .stat {
+      text-align: center; padding: 20px 12px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-val {
+      font-family: 'Manrope', sans-serif;
+      font-size: .92rem; font-weight: 700; color: var(--navy); letter-spacing: .01em;
+    }
+    .stat-label {
+      font-size: .67rem; color: var(--text-muted); font-weight: 500;
+      margin-top: 3px; text-transform: uppercase; letter-spacing: .06em;
+    }
+
+    /* ── MAIN LAYOUT ─────────────────────────────────────────────── */
+    .site-wrap {
+      max-width: 1400px; margin: 0 auto;
+      padding: 56px 32px; display: grid;
+      grid-template-columns: 1fr 308px; gap: 48px;
+    }
+    @media (max-width: 1024px) { .site-wrap { grid-template-columns: 1fr; } }
+
+    /* ── SECTIONS ────────────────────────────────────────────────── */
+    .section { margin-bottom: 60px; }
+    .section-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 28px;
+      padding-bottom: 16px; border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .section-header::after {
+      content: ''; position: absolute; bottom: -1px; left: 0;
+      width: 40px; height: 2px; background: var(--accent);
+    }
+    .section-icon {
+      width: 34px; height: 34px; background: var(--navy); border-radius: 7px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .section-icon svg {
+      width: 17px; height: 17px; fill: none;
+      stroke: rgba(255,255,255,.8); stroke-width: 1.75;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .section-header h2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.02rem; font-weight: 700; color: var(--navy);
+      text-transform: uppercase; letter-spacing: .06em; line-height: 1.3;
+    }
+
+    /* ── ARTICLE CARDS ───────────────────────────────────────────── */
+    .article-grid { display: flex; flex-direction: column; gap: 12px; }
+    .article-card {
+      background: var(--bg-white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 22px;
+      display: flex; gap: 18px; align-items: flex-start;
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .article-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 3px; height: 0; background: var(--accent);
+      transition: height .35s var(--ease);
+    }
+    .article-card:hover {
+      box-shadow: var(--shadow); transform: translateY(-2px);
+      border-color: rgba(249,115,22,.18);
+    }
+    .article-card:hover::before { height: 100%; }
+    .article-thumb {
+      width: 96px; height: 68px; object-fit: cover; border-radius: 7px;
+      flex-shrink: 0; background: #e8ecf2;
+    }
+    .article-body { flex: 1; min-width: 0; }
+    .article-body h3 {
+      font-family: 'Manrope', sans-serif;
+      font-size: .92rem; font-weight: 700; color: var(--navy); line-height: 1.38; margin-bottom: 6px;
+    }
+    .article-body h3 a { color: inherit; }
+    .article-body h3 a:hover { color: var(--accent); }
+    .article-excerpt { font-size: .81rem; color: var(--text-muted); line-height: 1.6; }
+    .article-read-more {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: .75rem; font-weight: 600; color: var(--accent);
+      margin-top: 8px; transition: gap var(--transition), color var(--transition);
+      letter-spacing: .01em; text-transform: uppercase;
+    }
+    .article-read-more:hover { color: var(--accent-hover); gap: 8px; }
+
+    /* ── PAGING ──────────────────────────────────────────────────── */
+    .paging {
+      display: flex; align-items: center; gap: 6px; margin-top: 24px; justify-content: center;
+    }
+    .paging a, .paging .page-current {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 7px; font-size: .82rem; font-weight: 600;
+      border: 1px solid var(--border); background: var(--bg-white); transition: var(--transition);
+    }
+    .paging a:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .paging .page-current { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .paging .page-arrow { width: auto; padding: 0 12px; font-size: .8rem; }
+
+    /* ── SIDEBAR ─────────────────────────────────────────────────── */
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .sidebar-card {
+      background: var(--bg-white); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: box-shadow var(--transition);
+    }
+    .sidebar-card:hover { box-shadow: var(--shadow-sm); }
+    .sidebar-card-header {
+      background: var(--navy); padding: 12px 18px;
+      border-bottom: 1px solid rgba(249,115,22,.35);
+    }
+    .sidebar-card-header h2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: .7rem; font-weight: 700; color: rgba(255,255,255,.7);
+      text-transform: uppercase; letter-spacing: .1em;
+    }
+    .sidebar-card-body { padding: 16px 18px; }
+
+    /* Search */
+    .search-form { display: flex; flex-direction: column; gap: 8px; }
+    .search-input {
+      width: 100%; border: 1px solid var(--border); border-radius: 6px; padding: 10px 13px;
+      font-size: .85rem; outline: none; font-family: inherit; background: var(--bg);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      color: var(--text);
+    }
+    .search-input:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(11,22,35,.06); background: #fff; }
+    .search-btn {
+      width: 100%; background: var(--navy); color: #fff; border: none; border-radius: 6px;
+      padding: 10px 14px; cursor: pointer; font-size: .82rem; font-weight: 700;
+      transition: background var(--transition), box-shadow var(--transition);
+      font-family: inherit; letter-spacing: .02em;
+    }
+    .search-btn:hover { background: var(--accent); box-shadow: 0 4px 16px rgba(249,115,22,.3); }
+    /* Search results highlight */
+    .article-card.search-hidden { display: none; }
+    .search-no-results {
+      display: none; padding: 16px; text-align: center; font-size: .82rem;
+      color: var(--text-muted); border: 1px dashed var(--border); border-radius: 8px;
+    }
+
+    /* Sidebar news */
+    .sidebar-news { display: flex; flex-direction: column; }
+    .sidebar-news-item {
+      display: flex; gap: 11px; align-items: flex-start;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+    }
+    .sidebar-news-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-news-thumb { width: 58px; height: 42px; object-fit: cover; border-radius: 5px; flex-shrink: 0; background: #e8ecf2; }
+    .sidebar-news-title { font-size: .77rem; font-weight: 600; color: var(--navy); line-height: 1.4; }
+    .sidebar-news-title a:hover { color: var(--accent); }
+
+    /* Contact sidebar */
+    .contact-info { font-size: .83rem; line-height: 1.8; color: var(--text); }
+    .contact-info strong { color: var(--navy); font-weight: 700; }
+    .contact-info a { color: var(--accent); }
+    .contact-info a:hover { text-decoration: underline; }
+    .contact-block { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .contact-block:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+
+    /* Company focus */
+    .focus-list { font-size: .83rem; color: var(--text-muted); line-height: 1; }
+    .focus-list li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 8px 0; border-bottom: 1px solid var(--border);
+    }
+    .focus-list li:last-child { border-bottom: none; }
+    .focus-list li::before {
+      content: ''; flex-shrink: 0; margin-top: 7px;
+      width: 4px; height: 4px; border-radius: 50%; background: var(--accent);
+    }
+
+    /* Motto */
+    .motto-box {
+      background: var(--bg); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0; padding: 14px 16px;
+      font-size: .83rem; color: var(--text-muted);
+    }
+    .motto-box p { margin-bottom: 8px; line-height: 1.6; }
+    .motto-box p:last-child { margin-bottom: 0; }
+    .motto-box strong { color: var(--navy); }
+
+    /* Quote sidebar */
+    .quote-item { padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
+    .quote-item:last-child { border-bottom: none; }
+    .quote-thumb { width: 44px; height: 44px; object-fit: cover; border-radius: 50%; flex-shrink: 0; background: #e8ecf2; }
+    .quote-text { font-size: .78rem; font-style: italic; color: var(--text-muted); line-height: 1.55; }
+    .quote-author { font-size: .72rem; font-weight: 600; color: var(--navy); font-style: normal; margin-top: 5px; }
+
+    /* ── CONTACT SECTION ─────────────────────────────────────────── */
+    .contact-section {
+      background: var(--navy-2); padding: 80px 32px;
+      position: relative; overflow: hidden;
+    }
+    .contact-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, var(--accent), transparent 55%);
+    }
+    .contact-section::after {
+      content: ''; position: absolute; bottom: -160px; right: -100px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(249,115,22,.05) 0, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-section-inner { max-width: 1400px; margin: 0 auto; position: relative; z-index: 1; }
+    .contact-section h2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #fff;
+      margin-bottom: 8px; letter-spacing: -.02em;
+    }
+    .contact-section .sub {
+      color: rgba(255,255,255,.42); font-size: .92rem; margin-bottom: 48px; max-width: 560px;
+    }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 16px; }
+    .contact-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius); padding: 28px;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+    .contact-card:hover {
+      background: rgba(255,255,255,.07); border-color: rgba(249,115,22,.22);
+      transform: translateY(-2px);
+    }
+    .contact-card h3 {
+      font-family: 'Manrope', sans-serif;
+      font-size: .68rem; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: .1em; margin-bottom: 14px;
+    }
+    .contact-card p { font-size: .88rem; color: rgba(255,255,255,.52); line-height: 1.85; }
+    .contact-card a { color: rgba(255,255,255,.65); transition: color var(--transition); }
+    .contact-card a:hover { color: #fff; }
+    .contact-card strong { color: rgba(255,255,255,.85); }
+
+    /* ── FOOTER ──────────────────────────────────────────────────── */
+    footer {
+      background: #060d18; padding: 28px 32px;
+      border-top: 1px solid rgba(255,255,255,.04);
+    }
+    .footer-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;
+    }
+    .footer-copy { font-size: .76rem; color: rgba(255,255,255,.22); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: .76rem; color: rgba(255,255,255,.28);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: rgba(255,255,255,.7); }
+    .footer-print-btn {
+      background: none; border: none; font-family: inherit; cursor: pointer;
+      font-size: .76rem; color: rgba(255,255,255,.28);
+      transition: color var(--transition);
+    }
+    .footer-print-btn:hover { color: rgba(255,255,255,.7); }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; margin-left: auto; }
+      .hero-inner { padding: 88px 24px 72px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: .95rem; }
+      .site-wrap { padding: 40px 20px; gap: 36px; }
+      .contact-section { padding: 60px 20px; }
+      .stats-inner { padding: 0 20px; border-left: none; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+    }
+    @media (max-width: 600px) {
+      .article-card { flex-direction: column; }
+      .article-thumb { width: 100%; height: 160px; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .hero-cta { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── ANIMATIONS ──────────────────────────────────────────────── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+    .animate { animation: fadeUp .6s var(--ease) both; }
+    .animate-delay-1 { animation-delay: .12s; }
+    .animate-delay-2 { animation-delay: .24s; }
+    .animate-delay-3 { animation-delay: .36s; }
+
+    /* Progress bar */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--accent), #fbbf24);
+      z-index: 2000; transition: width .1s linear; border-radius: 0 2px 2px 0;
+    }
+
+    /* Back to top */
+    #back-to-top {
+      position: fixed; bottom: 32px; right: 32px; z-index: 900;
+      width: 44px; height: 44px; border-radius: 8px;
+      background: var(--navy); color: rgba(255,255,255,.7); border: 1px solid rgba(255,255,255,.1);
+      cursor: pointer; font-size: 1.1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.28);
+      transition: all .2s var(--ease); opacity: 0; pointer-events: none;
+      transform: translateY(10px); display: flex; align-items: center; justify-content: center;
+      font-family: inherit;
+    }
+    #back-to-top:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-2px) !important; }
+  </style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<button id="back-to-top" aria-label="Zpět nahoru" title="Zpět nahoru">&#8679;</button>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="./index_new.html" class="nav-brand">
+      <span class="brand-title">Soudní znalec | Mojmír Klas, s.r.o.</span>
+      <span class="brand-sub">Projekce a kontroly zařízení k ochraně proti pádu</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="./pages/o-nas.html">O nás</a>
+      <a href="./pages/poskytovane-sluzby.html">Naše nabídka</a>
+      <a href="./pages/aktualni-clanky.html">Aktuální články</a>
+      <a href="./pages/otazky-a-odpovedi.html">Otázky a odpovědi</a>
+      <a href="./pages/postup-pri-navrhovani-kotvicich-bodu.html">Postupy navrhování</a>
+      <a href="./pages/informacni-pomucky.html">Pomůcky</a>
+      <a href="./pages/co-lze-videt-na-strechach.html">Ochrany proti pádu</a>
+      <a href="./pages/chyby-v-reseni-zrizeni-k-ochrane-proti-padu-serial.html">Chyby – seriál</a>
+      <a href="./pages/z-realizovany-projektu.html">Realizace</a>
+      <a href="./pages/cenik-sluzeb.html">Ceník</a>
+    </div>
+    <a href="./pages/napiste-nam.html" class="nav-cta">Napište nám</a>
+    <button class="hamburger" id="hamburger" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="./pages/o-nas.html">O nás</a>
+    <a href="./pages/kontakt.html">Kontakt</a>
+    <a href="./pages/poskytovane-sluzby.html">Naše nabídka</a>
+    <a href="./pages/aktualni-clanky.html">Aktuální články</a>
+    <a href="./pages/otazky-a-odpovedi.html">Otázky a odpovědi</a>
+    <a href="./pages/postup-pri-navrhovani-kotvicich-bodu.html">Postupy při navrhování systémů ochrany proti pádu</a>
+    <a href="./pages/informacni-pomucky.html">Informační pomůcky</a>
+    <a href="./pages/doporucena-reseni-mista-vystupu-pevnych-ocelovych-zebriku.html">Pevné kovové žebříky pro stavby</a>
+    <a href="./pages/vstup-do-scachet-zebriky-v-objektech-vodovodu-a-kanalizaci-a-cov.html">Vstup do šachet, žebříky v objektech vodovodů a kanalizací a ČOV</a>
+    <a href="./pages/co-lze-videt-na-strechach.html">Co lze také vidět v oblasti ochrany proti pádu</a>
+    <a href="./pages/chyby-v-reseni-zrizeni-k-ochrane-proti-padu-serial.html">Chyby v ochraně proti pádu – seriál</a>
+    <a href="./pages/jak-riskujeme-pri-praci-ve-vysce.html">Jak riskujeme při práci ve výšce</a>
+    <a href="./pages/z-realizovany-projektu.html">Naše realizované návrhy kotvicích zařízení v zahraničí</a>
+    <a href="./pages/latinske-citaty-vhodne-i-pro-dnesni-dobu.html">Latinské citáty vhodné i pro dnešní dobu</a>
+    <a href="./pages/murphyho-zakony.html">Murphyho zákony</a>
+    <a href="./pages/albert-einstein.html">Citáty známých osobností</a>
+    <a href="./pages/cenik-sluzeb.html">Ceník služeb a prací</a>
+    <a href="./pages/napiste-nam.html" class="cta">Napište nám</a>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <span class="hero-badge animate">Soudní znalec</span>
+    <h1 class="animate animate-delay-1">Projekce a kontroly zařízení<br>k ochraně proti pádu</h1>
+    <p class="animate animate-delay-2">Nezávislé znalecké posudky, projekce kotvicích zařízení, periodické prohlídky, vzdělávání a poradenství v oblasti bezpečnosti práce ve výšce.</p>
+    <div class="hero-cta animate animate-delay-3">
+      <a href="./pages/poskytovane-sluzby.html" class="btn-primary">Naše nabídka</a>
+      <a href="./pages/kontakt.html" class="btn-secondary">Kontaktujte nás</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STATS BAR ========== -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-val">IČO: 027 01 553</div>
+      <div class="stat-label">Mojmír Klas, s.r.o.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">DIČ: CZ02701553</div>
+      <div class="stat-label">Plátce DPH</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">+420 734 278 824</div>
+      <div class="stat-label">Ing. Mojmír Klas, CSc.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">info@mk11.cz</div>
+      <div class="stat-label">Hlavní e-mail</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">Kopřivnice</div>
+      <div class="stat-label">Štramberská 1127/28, 742 21</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<div class="site-wrap">
+
+  <!-- LEFT COLUMN -->
+  <main>
+
+    <!-- SECTION 1: Znalecké posudky -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h2>Znalecké posudky, projekce, kontrola a audity, vzdělávání, poradenství</h2>
+      </div>
+      <div class="article-grid">
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/projektujeme_na-20n-C3-A1-C5-A1-20web.jpg" alt="Nezávislé projekty záchytných systémů">
+          <div class="article-body">
+            <h3><a href="./pages/projektujeme-zarizeni-urcena-k-ochrane-proti-padu-kotvici-zarizeni-ktera-jsou-uzivatelsky-i-cenove-nejvhodnejsi.html">Nezávislé projekty záchytných systémů: Bezpečnost bez obchodních zájmů</a></h3>
+            <p class="article-excerpt">Navrhujeme kotvicí zařízení, která jsou technicky exaktní, uživatelsky přívětivá a ekonomicky dává smysl. Jako nezávislí experti neprodáváme komponenty – projektujeme bezpečí.</p>
+            <a href="./pages/projektujeme-zarizeni-urcena-k-ochrane-proti-padu-kotvici-zarizeni-ktera-jsou-uzivatelsky-i-cenove-nejvhodnejsi.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/provozn-C3-AD-20-C5-99-C3-A1d.png" alt="Provozní řády střech">
+          <div class="article-body">
+            <h3><a href="./pages/zpracovavame-provozni-rady-strech-jako-soucast-systemu-bezpecne-spravy-udrzby-a-uzivani-staveb.html">Zpracováváme provozní řády střech jako součást systému bezpečné správy, údržby a užívání staveb</a></h3>
+            <p class="article-excerpt">Pro zajištění bezpečného provozu, správné údržby a dlouhodobé funkčnosti střech a zařízení na nich umístěných je nezbytné mít k dispozici provozní řád střechy.</p>
+            <a href="./pages/zpracovavame-provozni-rady-strech-jako-soucast-systemu-bezpecne-spravy-udrzby-a-uzivani-staveb.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/BD-20Proch-C3-A1zkova_5.jpg" alt="Neznámé kotvicí zařízení">
+          <div class="article-body">
+            <h3><a href="./pages/posouzeni-kotviciho-zarizeni-ktere-nebylo-radne-kontrolovano.html">Máte na střeše neznámé nebo nekontrolované kotvicí zařízení?</a></h3>
+            <p class="article-excerpt">Mnoho majitelů objektů se potýká s dědictvím v podobě záchytných systémů, které nemají jasný původ, chybí jim dokumentace nebo neprošly řádnou revizí.</p>
+            <a href="./pages/posouzeni-kotviciho-zarizeni-ktere-nebylo-radne-kontrolovano.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/reg-C3-A1l.jpg" alt="Revize regálových systémů">
+          <div class="article-body">
+            <h3><a href="./pages/nova-sluzba-provadeni-revizi-a-preventivni-prohlidky-regalovych-systemu.html">Bezpečnost skladů pod kontrolou: Revize a prohlídky regálových systémů</a></h3>
+            <p class="article-excerpt">Regálový systém je technické zařízení, které podléhá intenzivnímu opotřebení a přísným bezpečnostním normám. Rozšiřujeme naše služby o profesionální revize a preventivní prohlídky skladových regálů.</p>
+            <a href="./pages/nova-sluzba-provadeni-revizi-a-preventivni-prohlidky-regalovych-systemu.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-body">
+            <h3><a href="./pages/nase-spolecnost-provadi-skoleni-pro-prace-ve-vysce.html">Působíme v oblasti bezpečnosti a ochrany zdraví při práci</a></h3>
+            <p class="article-excerpt">Zajišťujeme: zpracování znaleckých posudků v oblasti posuzování bezpečnosti práce, projektujeme zařízení určená k ochraně proti pádu (kotvicí zařízení), provádíme periodické prohlídky, poradenskou a konzultační činnost.</p>
+            <a href="./pages/nase-spolecnost-provadi-skoleni-pro-prace-ve-vysce.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/1-20(1).jpg" alt="Katedrála sv. Víta">
+          <div class="article-body">
+            <h3><a href="./pages/podekovani1.html">Katedrála sv. Víta, Václava a Vojtěcha</a></h3>
+            <p class="article-excerpt">Naše společnost byla vybrána pro vypracování pracovních postupů a systému pro bezpečnou práci při údržbě varhan v katedrále sv. Víta, Václava a Vojtěcha.</p>
+            <a href="./pages/podekovani1.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-body">
+            <h3><a href="./pages/certifikat-pravne-znalecky-upegrade.html">Certifikát právně znalecký upgrade</a></h3>
+            <p class="article-excerpt">Rozšiřovat si znalosti je jistě správné. Klas certifikát právně-znalecký upgrade_03_06_2025.pdf</p>
+            <a href="./pages/certifikat-pravne-znalecky-upegrade.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/V-C3-BDlez-20ze-20sv-C4-9Btl-C3-ADku_v-C3-BD-C5-99ez_s-20popisem.jpg" alt="Nevytvářet rizikové situace">
+          <div class="article-body">
+            <h3><a href="./pages/nevytvaret-rizikove-situace-je-vzdy-lepsi-nez-nasledne-riziko-resit.html">Nevytvářet rizikové situace je vždy lepší, než následně riziko řešit</a></h3>
+            <p class="article-excerpt">U tohoto výlezu na střechu je zbytečně výlez k volné hraně střechy. Postačilo výlez směrovat na volnou plochu. HIP nemusí zbytečné riziko pro údržbu postřehnout, ale stavbyvedoucí a dozor by měli projektanta upozornit.</p>
+            <a href="./pages/nevytvaret-rizikove-situace-je-vzdy-lepsi-nez-nasledne-riziko-resit.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/p-C5-99-C3-ADstup-20k-20VZT_s-20popisem_3_Ln.jpg" alt="Nevytvářet rizikové situace – druhá část">
+          <div class="article-body">
+            <h3><a href="./pages/nevytvaret-rizikove-situace-je-vzdy-lepsi-nez-nasledne-riziko-resit-dvojka.html">Nevytvářet rizikové situace je vždy lepší, než následně riziko řešit – druhá část</a></h3>
+            <p class="article-excerpt">Vstup na obslužnou lávku v místě, kde je pracovník bezprostředně ohrožen pádem do otvoru nechráněnému proti propadnutí. K této technologické jednotce se musí chodit i v období, kdy je plocha střechy kluzká.</p>
+            <a href="./pages/nevytvaret-rizikove-situace-je-vzdy-lepsi-nez-nasledne-riziko-resit-dvojka.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/absence-20upozorn-C4-9Bn-C3-AD-20na-20riziko-20propadnut-C3-AD.jpg" alt="Nevytvářet rizikové situace – třetí část">
+          <div class="article-body">
+            <h3><a href="./pages/nevytvaret-rizikove-situace-je-vzdy-lepsi-nez-nasledne-riziko-resit-treti-cast.html">Nevytvářet rizikové situace je vždy lepší, než následně riziko řešit – třetí část</a></h3>
+            <p class="article-excerpt">Riziko pádu do otvoru nechráněného proti propadnutí. Plastové prosvětlovací pásy představují, zejména v období, kdy na střeše leží sníh, značné riziko.</p>
+            <a href="./pages/nevytvaret-rizikove-situace-je-vzdy-lepsi-nez-nasledne-riziko-resit-treti-cast.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: Bezpečnost a přístupnost -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </div>
+        <h2>Bezpečnost a přístupnost při užívání stavby – základní požadavek na stavby</h2>
+      </div>
+      <div class="article-grid">
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/C4-8CSN_moje-20logo.png" alt="ČSN EN 17235:2025">
+          <div class="article-body">
+            <h3><a href="./pages/csn-en-17235-2025-trvala-kotevni-zarizeni-a-bezpecnostni-stresni-haky.html">ČSN EN 17235:2025 Trvalá kotevní zařízení a bezpečnostní střešní háky</a></h3>
+            <p class="article-excerpt">V roce 2025 vstoupila v platnost tato nová norma. Nahrazuje ČSN P CEN/TS 16415 (83 2630) a ČSN EN 795 Prostředky ochrany osob proti pádu – Kotvicí zařízení.</p>
+            <a href="./pages/csn-en-17235-2025-trvala-kotevni-zarizeni-a-bezpecnostni-stresni-haky.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/SDH.jpg" alt="Bezpečnostní střešní háky">
+          <div class="article-body">
+            <h3><a href="./pages/bezpecnostni-stresni-haky-umoznuji-bezpecny-pohyb-po-sikme-strese.html">Bezpečnostní střešní háky umožňují bezpečný pohyb po šikmé střeše</a></h3>
+            <p class="article-excerpt">Tyto prvky jsou určeny k pohybu po šikmém střešním plášti a jejich specifikace je dána ČSN EN 517 Prefabrikované příslušenství pro střešní krytiny – Bezpečnostní střešní háky.</p>
+            <a href="./pages/bezpecnostni-stresni-haky-umoznuji-bezpecny-pohyb-po-sikme-strese.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/st-C5-99e-C5-A1n-C3-AD-20l-C3-A1vka_2.jpeg" alt="Střešní lávky">
+          <div class="article-body">
+            <h3><a href="./pages/stresni-lavky-jako-soucast-ochrany-proti-padu-z-vysky.html">Střešní lávky jako součást ochrany proti pádu z výšky</a></h3>
+            <p class="article-excerpt">Střešní lávky dle ČSN EN 516 Prefabrikované příslušenství pro střešní krytiny – Zařízení pro přístup na střechu – Lávky, plošiny a stupně.</p>
+            <a href="./pages/stresni-lavky-jako-soucast-ochrany-proti-padu-z-vysky.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-body">
+            <h3><a href="./pages/pevny-kovovy-zebrik-pro-stavby-a-pevny-zebrik-jako-pristup-ke-strojnim-zarizenim-rozdily-v-reseni-cast-prvni-pricle.html">Pevný kovový žebřík pro stavby a pevný žebřík jako přístup ke strojním zařízením – rozdíly v řešení, část první: příčle</a></h3>
+            <p class="article-excerpt">Bezpečný přístup na plochy s rizikem pádu je důležitým požadavkem pro ochranu života a zdraví osob. Způsob řešení pevných kovových žebříků byl v letošním roce v technických normách významně upraven.</p>
+            <a href="./pages/pevny-kovovy-zebrik-pro-stavby-a-pevny-zebrik-jako-pristup-ke-strojnim-zarizenim-rozdily-v-reseni-cast-prvni-pricle.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-body">
+            <h3><a href="./pages/pevny-zebrik-pro-stavby-a-pevny-zebrik-jako-pristup-ke-strojnim-zarizenim-rozdily-v-reseni-cast-druha-bezpecnostni-kos-a-zachycovac-padu.html">Pevný žebřík pro stavby a pevný žebřík jako přístup ke strojním zařízením – rozdíly v řešení, část druhá: bezpečnostní koš a zachycovač pádu</a></h3>
+            <p class="article-excerpt">Pokračování série o rozdílech v řešení pevných kovových žebříků pro stavby a přístupu ke strojním zařízením.</p>
+            <a href="./pages/pevny-zebrik-pro-stavby-a-pevny-zebrik-jako-pristup-ke-strojnim-zarizenim-rozdily-v-reseni-cast-druha-bezpecnostni-kos-a-zachycovac-padu.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-body">
+            <h3><a href="./pages/metodika-zadrzovaci-a-zachycovaci-systemy-proti-padu-osob-zakladni-principy-navrhovani-aktualizace-k-20211.html">Technická pomůcka: Zadržovací a zachycovací systémy proti pádu osob. Základní principy navrhování – aktualizace 2021</a></h3>
+            <p class="article-excerpt">Aktualizovaná metodika pro navrhování zadržovacích a zachycovacích systémů proti pádu osob.</p>
+            <a href="./pages/metodika-zadrzovaci-a-zachycovaci-systemy-proti-padu-osob-zakladni-principy-navrhovani-aktualizace-k-20211.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/kapitola-20prvn-C3-AD.jpg" alt="Kapitola první">
+          <div class="article-body">
+            <h3><a href="./pages/kapitola-prvni-zakladni-pravni-odkazy1.html">Kapitola první: Základní právní odkazy</a></h3>
+            <a href="./pages/kapitola-prvni-zakladni-pravni-odkazy1.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/kapitola-20druh-C3-A1.jpg" alt="Kapitola druhá">
+          <div class="article-body">
+            <h3><a href="./pages/kapitola-druha-rekonstrukce-staveb-a-bezpecnost-a-pristupnost-pri-uzivani.html">Kapitola druhá: Rekonstrukce staveb a bezpečnost a přístupnost při užívání</a></h3>
+            <a href="./pages/kapitola-druha-rekonstrukce-staveb-a-bezpecnost-a-pristupnost-pri-uzivani.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/kapitola-20t-C5-99et-C3-AD.jpg" alt="Kapitola třetí">
+          <div class="article-body">
+            <h3><a href="./pages/kapitola-treti-bezpecnost-a-pristupnost-pri-uzivani-strechy.html">Kapitola třetí: Bezpečnost a přístupnost při užívání střechy</a></h3>
+            <a href="./pages/kapitola-treti-bezpecnost-a-pristupnost-pri-uzivani-strechy.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/kapitola-20x.jpg" alt="Kapitola čtvrtá">
+          <div class="article-body">
+            <h3><a href="./pages/kapitola-ctvrta-plochy-se-sklonem-do-10-a-otvory-nechranene-proti-propadnuti.html">Kapitola čtvrtá: Plochy se sklonem do 10° a otvory nechráněné proti propadnutí</a></h3>
+            <a href="./pages/kapitola-ctvrta-plochy-se-sklonem-do-10-a-otvory-nechranene-proti-propadnuti.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: Nevhodná a chybná řešení -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#b91c1c;">
+          <svg viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        </div>
+        <h2>Nevhodná a chybná řešení ochrany proti pádu</h2>
+      </div>
+      <div class="article-grid">
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/FB_1_A.jpg" alt="Nešetřili investorovi">
+          <div class="article-body">
+            <h3><a href="./pages/nesetrili-investorovi-jeho-penezenku1.html">Nešetřili investorovi jeho peněženku</a></h3>
+            <p class="article-excerpt">Firma, která vypracoval návrh kotvicího zařízení a kotvicí zařízení instalovala, zbytečně „vyhodila" investorovi několik desítek tisíc korun. Postačilo, aby se podívala na navazující střechu.</p>
+            <a href="./pages/nesetrili-investorovi-jeho-penezenku1.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/z-C3-A1kres-20v-C3-BD-C5-A1ky-20p-C3-A1du.jpg" alt="Nesprávné řešení">
+          <div class="article-body">
+            <h3><a href="./pages/nespravne-reseni-zarizeni-urceneho-k-ochraneproti-padu.html">Nesprávné řešení zařízení určeného k ochraně proti pádu</a></h3>
+            <p class="article-excerpt">Při kontrole kotvicího zařízení bylo zjištěno, že umístění kotvicího zařízení nevyhovuje požadavku bezpečného zachycení pádu.</p>
+            <a href="./pages/nespravne-reseni-zarizeni-urceneho-k-ochraneproti-padu.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/CIMG4608_se-20zv-C3-BDrazn-C4-9Bn-C3-ADm.jpg" alt="Zrádnost situace">
+          <div class="article-body">
+            <h3><a href="./pages/zradnost-situace-kdy-jedna-a-taz-firma-vypracuje-navrh-projekt-kotviciho-zarizeni-urceneho-k-ochrane-proti-padu-nasledne-zarizeni-instaluje-a-pak-provadi-periodicke-prohlidky.html">Zrádnost situace, kdy jedna a táž firma vypracuje návrh/projekt kotvicího zařízení, následně zařízení instaluje a pak provádí periodické prohlídky</a></h3>
+            <p class="article-excerpt">Na tomto spojovacím krčku ušetřila instalační firma jeden kotvicí bod – rohový, nevytvořila obdélník se stejnou délkou spojovacího prostředku.</p>
+            <a href="./pages/zradnost-situace-kdy-jedna-a-taz-firma-vypracuje-navrh-projekt-kotviciho-zarizeni-urceneho-k-ochrane-proti-padu-nasledne-zarizeni-instaluje-a-pak-provadi-periodicke-prohlidky.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/nepovolen-C3-A1-20v-C3-BD-C5-A1ka-20p-C3-A1du.png" alt="Projektant chybným řešením">
+          <div class="article-body">
+            <h3><a href="./pages/projektant-chybnym-navrhem-ohrozil-zivot-a-zdravi-uzivatele-kotviciho-zarizeni1.html">Projektant chybným řešením ohrozil život a zdraví uživatele kotvicího zařízení</a></h3>
+            <a href="./pages/projektant-chybnym-navrhem-ohrozil-zivot-a-zdravi-uzivatele-kotviciho-zarizeni1.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/mont-C3-A1-C5-BE-20kotvic-C3-ADho-20za-C5-99-C3-ADzen-C3-AD_nesyst-C3-A9mov-C3-A1-20reznouc-C3-AD-20.jpg" alt="Certifikovaná firma">
+          <div class="article-body">
+            <h3><a href="./pages/tuto-instalaci-kotviciho-zarizeni-provedla-firma-ktera-ma-na-svych-webovych-strankach-ze-jde-o-certifikovanou-kvalitni-firmu.html">Tuto instalaci kotvicího zařízení provedla firma, která má na svých webových stránkách, že jde o certifikovanou kvalitní firmu</a></h3>
+            <p class="article-excerpt">Při periodické prohlídce bylo zjištěno, že byly použity nesystémové výrobky, které navíc korodují.</p>
+            <a href="./pages/tuto-instalaci-kotviciho-zarizeni-provedla-firma-ktera-ma-na-svych-webovych-strankach-ze-jde-o-certifikovanou-kvalitni-firmu.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/nebezpe-C4-8Dn-C3-A9-20plochy-20st-C5-99echy.jpg" alt="Nedostatečné označení">
+          <div class="article-body">
+            <h3><a href="./pages/nedostatecne-oznaceni-omezeni-pohybu-u-nepochuznich-ploch-prosvetlovacich-pasu.html">Nedostatečné označení/omezení pohybu u nepochůzných ploch – prosvětlovacích pásů</a></h3>
+            <a href="./pages/nedostatecne-oznaceni-omezeni-pohybu-u-nepochuznich-ploch-prosvetlovacich-pasu.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/mobiln-C3-AD-20kotvic-C3-AD-20bod_FB.jpg" alt="Kotvicí zařízení – odborná způsobilost">
+          <div class="article-body">
+            <h3><a href="./pages/kotvici-zarizeni-ma-instalovat-pouze-odborne-zpusobile-osoby-nebo-organizace.html">Kotvicí zařízení má instalovat pouze odborně způsobilá osoba nebo organizace</a></h3>
+            <a href="./pages/kotvici-zarizeni-ma-instalovat-pouze-odborne-zpusobile-osoby-nebo-organizace.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/Fsg_mal-C3-A9.jpg" alt="Úskalí návrhů">
+          <div class="article-body">
+            <h3><a href="./pages/uskali-navrhu-kotvicich-zarizeni-vypracovanych-instalacni-firmou-casto-i-prodejcem-kotviciho-zarizeni-v-jedne-osobe.html">Úskalí návrhů kotvicích zařízení vypracovaných instalační firmou, často i prodejcem kotvicího zařízení v jedné osobě</a></h3>
+            <a href="./pages/uskali-navrhu-kotvicich-zarizeni-vypracovanych-instalacni-firmou-casto-i-prodejcem-kotviciho-zarizeni-v-jedne-osobe.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/ALVE_speci-C3-A1ln-C3-AD-20kontrukce_bez-20n-C3-A1zv-C5-AF.jpg" alt="Permanentní poddajné kotvicí vedení">
+          <div class="article-body">
+            <h3><a href="./pages/zde-melo-byt-osazeno-permanentni-poddajne-kotvici-vedeni-instalacni-firma-nedodrzela-pozadavek-na-dostatecnou-ochranu-proti-padu.html">Zde mělo být osazeno permanentní poddajné kotvicí vedení. Instalační firma nedodržela požadavek na dostatečnou ochranu proti pádu.</a></h3>
+            <a href="./pages/zde-melo-byt-osazeno-permanentni-poddajne-kotvici-vedeni-instalacni-firma-nedodrzela-pozadavek-na-dostatecnou-ochranu-proti-padu.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/CIMG3609_1.jpg" alt="Chyby v umístění kotvicího zařízení">
+          <div class="article-body">
+            <h3><a href="./pages/chyby-v-umisteni-a-provedeni-kotviciho-zarizeni-jsou-castejsi-nez-jsou-spravna-reseni.html">Chyby v umístění a provedení kotvicího zařízení jsou častější než jsou správná řešení</a></h3>
+            <a href="./pages/chyby-v-umisteni-a-provedeni-kotviciho-zarizeni-jsou-castejsi-nez-jsou-spravna-reseni.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: Podněty, informace, odpovědi -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#0e7490;">
+          <svg viewBox="0 0 24 24"><path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h2>Podněty, informace, odpovědi</h2>
+      </div>
+      <div class="article-grid">
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/moje-20logo_MK-20(1).png" alt="Zásady bezpečnosti">
+          <div class="article-body">
+            <h3><a href="./pages/zasady-bezpecnosti-pri-uzivani-stavby-ve-stavebnim-zakone-a-provadecich-vyhlaskach.html">Zásady bezpečnosti při užívání stavby ve stavebním zákoně a prováděcích vyhláškách</a></h3>
+            <p class="article-excerpt">Od srpna 2024 se řídíme novou legislativou a jednou z důležitých součástí projektové dokumentace jsou Zásady bezpečnosti při užívání stavby. Jde o zákonný požadavek podle § 146 stavebního zákona a vyhlášky č. 131/2024 Sb.</p>
+            <a href="./pages/zasady-bezpecnosti-pri-uzivani-stavby-ve-stavebnim-zakone-a-provadecich-vyhlaskach.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/P-C5-99-C3-ADloha-20-C4-8CSN-20EN-20795.jpg" alt="Dokumentace kotvicího zařízení">
+          <div class="article-body">
+            <h3><a href="./pages/jaka-dokumentace-se-musi-dolozit-k-instalovanemu-kotvcimu-zarizeni.html">Co má obsahovat dokumentace k instalovanému kotvicímu zařízení</a></h3>
+            <p class="article-excerpt">Na základě normy ČSN EN 795 musí firma instalující kotvicí zařízení splňovat povinnosti týkající se odborné způsobilosti, ověření instalace a dokumentace.</p>
+            <a href="./pages/jaka-dokumentace-se-musi-dolozit-k-instalovanemu-kotvcimu-zarizeni.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/DSCN3719.jpg" alt="Místa kotvení na lešení">
+          <div class="article-body">
+            <h3><a href="./pages/obdrzeli-jsme-tento-dotaz-tykajici-se-mist-kotveni-na-leseni.html">Obdrželi jsme tento dotaz týkající se míst kotvení na lešení</a></h3>
+            <p class="article-excerpt">Požaduji po jednom zhotoviteli, tedy jeho stavbyvedoucím, aby na konstrukci lešení vyznačil místa, kde se pracovníci ukotví se svými bezpečnostními postroji.</p>
+            <a href="./pages/obdrzeli-jsme-tento-dotaz-tykajici-se-mist-kotveni-na-leseni.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/lis.jpg" alt="ČSN EN ISO 14122">
+          <div class="article-body">
+            <h3><a href="./pages/nove-csn-en-iso-14122-1-az-4-bezpe.html">Nové ČSN EN ISO 14122 části 1 až 4 – Bezpečnost strojních zařízení – Trvalé prostředky přístupu ke strojním zařízením a změna ČSN 74 3282/Z1:2017</a></h3>
+            <p class="article-excerpt">Bezpečný přístup na plochy s rizikem pádu je důležitým požadavkem pro ochranu života a zdraví osob.</p>
+            <a href="./pages/nove-csn-en-iso-14122-1-az-4-bezpe.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-body">
+            <h3><a href="./pages/casty-dotaz-kdy-jde-o-pevny-kovovy-zebrik-pro-stavby-a-kdy-jde-o-zebrik-urreny-jako-pristup-ke-strojnimu-zarizeni.html">Častý dotaz: kdy jde o pevný kovový žebřík pro stavby a kdy jde o žebřík určený jako přístup ke strojnímu zařízení?</a></h3>
+            <a href="./pages/casty-dotaz-kdy-jde-o-pevny-kovovy-zebrik-pro-stavby-a-kdy-jde-o-zebrik-urreny-jako-pristup-ke-strojnimu-zarizeni.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img class="article-thumb" src="./images/heliport.jpg" alt="Ochrana proti pádu na heliportu">
+          <div class="article-body">
+            <h3><a href="./pages/tip-jak-vyresit-ochranu-proti-padu-na-heliportu.html">Tip, jak vyřešit ochranu proti pádu na heliportu</a></h3>
+            <a href="./pages/tip-jak-vyresit-ochranu-proti-padu-na-heliportu.html" class="article-read-more">Číst více →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+
+    <!-- Search -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header"><h2>Vyhledávání</h2></div>
+      <div class="sidebar-card-body">
+        <form action="/search/" method="get" id="fulltextSearch" class="search-form">
+          <input type="text" name="text" class="search-input" placeholder="Hledat...">
+          <button type="submit" class="search-btn">Hledat</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Aktuality -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header"><h2>Aktuality</h2></div>
+      <div class="sidebar-card-body">
+        <div class="sidebar-news">
+          <div class="sidebar-news-item">
+            <img class="sidebar-news-thumb" src="./images/certifik-C3-A1t_dozor-20stavebn-C3-ADka_projektanta.png" alt="">
+            <div class="sidebar-news-title"><a href="./pages/technicky-dozor-stavebnika-dozor-projektanta.html">Technický dozor stavebníka, dozor projektanta</a></div>
+          </div>
+          <div class="sidebar-news-item">
+            <img class="sidebar-news-thumb" src="./images/C4-8Das.png" alt="">
+            <div class="sidebar-news-title"><a href="./pages/mojmir-klas-se-stal-clenem-tnk-107-vytahy-pohyblive-schodiste-pohyblive-schody-a-pohyblive-chodniky.html">Mojmír Klas se stal členem TNK 107 – výtahy, pohyblivé schodiště, pohyblivé schody a pohyblivé chodníky</a></div>
+          </div>
+          <div class="sidebar-news-item">
+            <img class="sidebar-news-thumb" src="./images/kotv-C3-ADc-C3-AD-20bod-20k-20osazen-C3-AD-20na-20-C5-BDB-20desku-20i-20pro-20pr-C3-A1ci-20na-20lan-.png" alt="">
+            <div class="sidebar-news-title"><a href="./pages/upevneni-kotviciho-zarizeni-urceneho-k-ochrane-proti-padu.html">Upevnění kotvicího zařízení určeného k ochraně proti pádu</a></div>
+          </div>
+          <div class="sidebar-news-item">
+            <img class="sidebar-news-thumb" src="./images/VTZ-20bez-20z-C3-A1bradl-C3-AD.jpg" alt="">
+            <div class="sidebar-news-title"><a href="./pages/csn-74-3305-2025-ochranna-zabradli-zmeny-oproti-verzi-2017-cast-prvni.html">ČSN 74 3305:2025 Ochranná zábradlí – změny oproti verzi 2017 – část první</a></div>
+          </div>
+          <div class="sidebar-news-item">
+            <div class="sidebar-news-title"><a href="./pages/csn-74-3305-2025-ochranna-zabradli-zmeny-oproti-verzi-2017-cast-druha.html">ČSN 74 3305:2025 Ochranná zábradlí – změny oproti verzi 2017 – část druhá</a></div>
+          </div>
+          <div class="sidebar-news-item">
+            <div class="sidebar-news-title"><a href="./pages/novy-stavebni-zakon-a-zakladni-pozadavky-na-stavby.html">Nový stavební zákon a základní požadavky na stavby</a></div>
+          </div>
+          <div class="sidebar-news-item">
+            <div class="sidebar-news-title"><a href="./pages/bezpecny-vystup-casto-vyzaduje-reseni-na-miru.html">Bezpečný výstup často vyžaduje řešení na míru</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kontakt -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header"><h2>Kontakt</h2></div>
+      <div class="sidebar-card-body">
+        <div class="contact-info">
+          <div class="contact-block">
+            <strong>Mojmír Klas, s.r.o.</strong><br>
+            Štramberská 1127/28, 742 21 Kopřivnice<br>
+            IČO: 027 01 553 | DIČ: CZ02701553<br>
+            DUNS: 361526997<br>
+            ID DS: 5amdza7
+          </div>
+          <div class="contact-block">
+            <strong>Ing. Mojmír Klas, CSc.</strong> – jednatel<br>
+            <a href="tel:+420734278824">+420 734 278 824</a><br>
+            <a href="mailto:info@mk11.cz">info@mk11.cz</a><br>
+            <a href="https://www.facebook.com/mojmir.klas" target="_blank" rel="noopener">Facebook</a> |
+            <a href="https://www.linkedin.com/in/mojm%C3%ADr-klas-209590101/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+          <div class="contact-block">
+            <strong>Andrea Müllerová</strong> – jednatelka<br>
+            <a href="tel:+420734100103">+420 734 100 103</a><br>
+            <a href="mailto:mullerova@mk11.cz">mullerova@mk11.cz</a>
+          </div>
+          <div class="contact-block">
+            Projekční práce:<br>
+            <a href="mailto:projekce@mk11.cz">projekce@mk11.cz</a>
+          </div>
+          <div class="contact-block">
+            <strong>Provozovna:</strong><br>
+            742 21 Závišice ev. č. 1
+          </div>
+          <div class="contact-block" style="font-size:.78rem; color:#888;">
+            Mojmír Klas – OSVČ<br>
+            ID DS: ynbeup7<br><br>
+            Mojmír Klas – znalec<br>
+            ID DS: 3izufds
+          </div>
+          <div class="contact-block">
+            <em>Další kontakty viz <a href="./pages/kontakt.html">složka kontakty</a></em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zaměření společnosti -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header"><h2>Zaměření společnosti Mojmír Klas, s.r.o.</h2></div>
+      <div class="sidebar-card-body">
+        <ul class="focus-list">
+          <li>Vypracování znaleckých posudků</li>
+          <li>Poradenská činnost v oblasti ochrany proti pádu</li>
+          <li>Navrhování a projekce opatření k ochraně proti pádu</li>
+          <li>Navrhování opatření pro práci formou lanového přístupu</li>
+          <li>Periodické prohlídky a posuzování technických zařízení určených k ochraně proti pádu</li>
+          <li>Zpracování provozního řádu střechy</li>
+        </ul>
+        <a href="./pages/nase-spolecnost-se-specializuje-na.html" class="article-read-more" style="margin-top:12px; display:inline-block;">Více o zaměření →</a>
+      </div>
+    </div>
+
+    <!-- Motto -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header"><h2>Naše motto</h2></div>
+      <div class="sidebar-card-body">
+        <div class="motto-box">
+          <p><strong>Pracovní:</strong><br>Pořádek stojí peníze. Nepořádek stojí daleko víc.</p>
+          <p style="margin-bottom:0"><strong>Osobní:</strong><br>Úsměv stojí méně než elektřina a dává více světla.</p>
+        </div>
+        <a href="./pages/motto.html" class="article-read-more" style="margin-top:10px; display:inline-block;">Celé motto →</a>
+      </div>
+    </div>
+
+    <!-- Citáty -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header"><h2>Zajímavé výroky, přísloví i citáty</h2></div>
+      <div class="sidebar-card-body">
+        <div class="quote-item">
+          <img class="quote-thumb" src="./images/Erasmus.jpg" alt="Erasmus Rotterdamský">
+          <div>
+            <p class="quote-text">„Rozum je nejspravedlivěji rozdělený statek. Nikdo si nestěžuje, že ho má málo."</p>
+            <p class="quote-author"><a href="./pages/erasmus-rotterdamsky.html">Erasmus Rotterdamský</a></p>
+          </div>
+        </div>
+        <div class="quote-item">
+          <img class="quote-thumb" src="./images/Marcus.jpg" alt="Marcus Aurelius">
+          <div>
+            <p class="quote-text">Nejlepší způsob, jak se někomu pomstít, je nebýt jako on.</p>
+            <p class="quote-author"><a href="./pages/marcus-aurelius-antoninus-augustus.html">Marcus Aurelius Antoninus Augustus</a></p>
+          </div>
+        </div>
+        <div class="quote-item">
+          <img class="quote-thumb" src="./images/Nietzsche.jpg" alt="Friedrich Nietzsche">
+          <div>
+            <p class="quote-text">Když člověk postaví dům, vždycky zpozoruje, že se při tom naučil něco, co by byl nevyhnutelně potřeboval vědět předtím...</p>
+            <p class="quote-author"><a href="./pages/friedrich-nietzsche.html">Friedrich Nietzsche</a></p>
+          </div>
+        </div>
+        <a href="./pages/latinske-citaty-vhodne-i-pro-dnesni-dobu.html" class="article-read-more" style="margin-top:10px; display:inline-block;">Latinské citáty →</a><br>
+        <a href="./pages/albert-einstein.html" class="article-read-more" style="margin-top:6px; display:inline-block;">Citáty osobností →</a><br>
+        <a href="./pages/murphyho-zakony.html" class="article-read-more" style="margin-top:6px; display:inline-block;">Murphyho zákony →</a>
+      </div>
+    </div>
+
+
+  </aside>
+</div>
+
+<!-- ========== CONTACT SECTION ========== -->
+<section class="contact-section" id="kontakt">
+  <div class="contact-section-inner">
+    <h2>Kontaktujte nás</h2>
+    <p class="sub">Soudní znalec v oboru posuzování bezpečnosti práce. Projektová činnost v oblasti ochrany proti pádu.</p>
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <h3>Sídlo firmy</h3>
+        <p>
+          <strong>Mojmír Klas, s.r.o.</strong><br>
+          Štramberská 1127/28<br>
+          742 21 Kopřivnice<br><br>
+          IČO: 027 01 553<br>
+          DIČ: CZ02701553<br>
+          DUNS: 361526997<br>
+          ID datové schránky: 5amdza7
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Ing. Mojmír Klas, CSc. – jednatel</h3>
+        <p>
+          <a href="tel:+420734278824">+420 734 278 824</a><br>
+          <a href="mailto:info@mk11.cz">info@mk11.cz</a><br><br>
+          <a href="https://www.facebook.com/mojmir.klas" target="_blank" rel="noopener">facebook.com/mojmir.klas</a><br>
+          <a href="https://www.linkedin.com/in/mojm%C3%ADr-klas-209590101/" target="_blank" rel="noopener">LinkedIn profil</a><br><br>
+          Mojmír Klas – OSVČ<br>
+          <a href="mailto:projekce@mk11.cz">projekce@mk11.cz</a><br>
+          ID DS (OSVČ): ynbeup7<br><br>
+          Mojmír Klas – znalec<br>
+          ID DS (znalec): 3izufds
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Andrea Müllerová – jednatelka</h3>
+        <p>
+          <a href="tel:+420734100103">+420 734 100 103</a><br>
+          <a href="mailto:mullerova@mk11.cz">mullerova@mk11.cz</a>
+        </p>
+        <h3 style="margin-top:20px;">Projekční práce</h3>
+        <p>
+          <a href="mailto:projekce@mk11.cz">projekce@mk11.cz</a>
+        </p>
+        <h3 style="margin-top:20px;">Provozovna</h3>
+        <p>742 21 Závišice ev. č. 1</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Napište nám</h3>
+        <p style="margin-bottom:16px;">Máte dotaz nebo zájem o naše služby? Neváhejte nás kontaktovat.</p>
+        <a href="./pages/napiste-nam.html" class="btn-primary" style="font-size:.85rem; padding:12px 20px;">Kontaktní formulář →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2009 Všechna práva vyhrazena. | Mojmír Klas, s.r.o.</span>
+    <div class="footer-links">
+      <a href="./index_new.html">Úvodní stránka</a>
+      <a href="./pages/sitemap.html">Mapa stránek</a>
+      <a href="./pages/rss.html">RSS</a>
+      <a href="#" onclick="window.print(); return false;" class="footer-print-btn" style="color:#5a6e88; font-size:.8rem; font-family:inherit; background:none; border:none; cursor:pointer;">Tisk</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Progress bar
+  var bar=document.getElementById('progress-bar');
+  if(bar){window.addEventListener('scroll',function(){var h=document.documentElement;bar.style.width=Math.min(h.scrollTop/(h.scrollHeight-h.clientHeight)*100,100)+'%';},{passive:true});}
+
+  // Back to top
+  var btt=document.getElementById('back-to-top');
+  if(btt){
+    window.addEventListener('scroll',function(){
+      var v=window.scrollY>400;
+      btt.style.opacity=v?'1':'0';
+      btt.style.pointerEvents=v?'auto':'none';
+      btt.style.transform=v?'none':'translateY(10px)';
+    },{passive:true});
+    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+
+  // Hamburger
+  var hbg=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu');
+  if(hbg&&mm){hbg.addEventListener('click',function(){var open=mm.classList.toggle('open');var s=hbg.querySelectorAll('span');s[0].style.transform=open?'rotate(45deg) translate(5px,6px)':'';s[1].style.opacity=open?'0':'1';s[2].style.transform=open?'rotate(-45deg) translate(5px,-6px)':'';});}
+
+  // Scroll reveal
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.style.opacity='1';
+          e.target.style.transform='none';
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.06});
+    document.querySelectorAll('.article-card,.section,.stats-inner .stat').forEach(function(el,i){
+      el.style.cssText+='opacity:0;transform:translateY(18px);transition:opacity .5s ease '+(i%4*.1)+'s,transform .5s ease '+(i%4*.1)+'s';
+      obs.observe(el);
+    });
+  }
+
+  // ── VYHLEDÁVÁNÍ ────────────────────────────────────────────────
+  var searchForm = document.getElementById('fulltextSearch');
+  var searchInput = searchForm ? searchForm.querySelector('.search-input') : null;
+  var allCards = document.querySelectorAll('.article-card');
+
+  // Přidej "žádné výsledky" placeholder za každou article-grid
+  document.querySelectorAll('.article-grid').forEach(function(grid){
+    var msg = document.createElement('p');
+    msg.className = 'search-no-results';
+    msg.textContent = 'Žádné výsledky pro toto hledání.';
+    grid.parentNode.insertBefore(msg, grid.nextSibling);
+  });
+
+  function doSearch(q) {
+    q = q.trim().toLowerCase();
+    var totalVisible = 0;
+    allCards.forEach(function(card) {
+      var text = (card.textContent || '').toLowerCase();
+      var show = !q || text.includes(q);
+      card.classList.toggle('search-hidden', !show);
+      if(show) totalVisible++;
+    });
+
+    // Zobraz/skryj "žádné výsledky" u každé sekce
+    document.querySelectorAll('.section').forEach(function(sec) {
+      var cards = sec.querySelectorAll('.article-card');
+      var visible = 0;
+      cards.forEach(function(c){ if(!c.classList.contains('search-hidden')) visible++; });
+      var msg = sec.querySelector('.search-no-results');
+      if(msg) msg.style.display = (q && visible === 0) ? 'block' : 'none';
+    });
+
+    // Pokud nic nenajdeme na stránce — přesměruj na Google
+    if(q && totalVisible === 0) {
+      setTimeout(function(){
+        window.open('https://www.google.com/search?q=site:mojmirklas.cz+'+encodeURIComponent(q), '_blank');
+      }, 600);
+    }
+  }
+
+  if(searchInput) {
+    // Real-time filtrování
+    searchInput.addEventListener('input', function(){ doSearch(this.value); });
+
+    // Submit → Google pokud není nalezeno
+    searchForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var q = searchInput.value.trim();
+      if(!q) return;
+      var totalVisible = document.querySelectorAll('.article-card:not(.search-hidden)').length;
+      var url = 'https://www.google.com/search?q=site:mojmirklas.cz+'+encodeURIComponent(q);
+      if(totalVisible === 0) {
+        window.open(url, '_blank');
+      } else {
+        doSearch(q);
+        // Skroluj k výsledkům
+        var first = document.querySelector('.article-card:not(.search-hidden)');
+        if(first) first.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>
